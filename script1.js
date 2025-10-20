@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // As imagens estão na pasta 'img' no mesmo nível do arquivo HTML e JS.
     // Lembre-se de verificar os nomes exatos dos arquivos e suas extensões.
     const backgroundImages = [
-        'img/16 Pro Max.webp',   // Imagem do "16 Pro Max"
-        'img/Edge 60.webp',      // Imagem do "Edge 60"
-        'img/Note 14.jpg',       // Imagem do "Note 14"
-        'img/Note 60.webp',      // Imagem do "Note 60"
-        'img/S25 ultra.jpg'      // Imagem do "S25 ultra"
+        '16 Pro Max.webp',   // Imagem do "16 Pro Max"
+        'Edge 60.webp',      // Imagem do "Edge 60"
+        'Note 14.jpg',       // Imagem do "Note 14"
+        'Note 60.webp',      // Imagem do "Note 60"
+        'S25 ultra.jpg'      // Imagem do "S25 ultra"
     ];
 
     let currentImageIndex = 0; // Índice da imagem atual no array
@@ -53,4 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Configura um intervalo para chamar a função 'changeBackground' repetidamente
     setInterval(changeBackground, displayDuration);
+
 });
