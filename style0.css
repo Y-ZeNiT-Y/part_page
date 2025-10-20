@@ -1,0 +1,372 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #fcfcfc; /* Manter a cor clara para o texto padrão */
+    background-color: white;
+
+    /* Novas propriedades para o sticky footer */
+    min-height: 100vh; /* Garante que o body tenha pelo menos a altura da viewport */
+    display: flex; /* Habilita o flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+}
+
+/* O wrapper que engloba todo o conteúdo exceto o footer */
+#content-wrapper {
+    flex: 1; /* Faz com que o content-wrapper ocupe todo o espaço disponível, empurrando o footer para baixo */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+h1{
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2{
+    color: #ffffff; /* Ajustado para ser branco para o contraste no bg-light */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #000000;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ee781f 60%, #f53900);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    border:none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #f53900 60%, #ee781f);
+}
+
+.bg-light {
+    background: rgb(30, 30, 30);
+    padding: 40px 0;
+}
+
+/* Header */
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 15px 0;
+    border-bottom: #000000 3px solid;
+}
+
+header h1 {
+    float: left;
+    margin: 0;
+    color: #fff;
+}
+
+header h1 a {
+    color: #ffffff;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 15px;
+}
+
+header a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Hero Section */
+#hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay escura para melhorar a legibilidade do texto sobre a imagem de fundo */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    background:rgba(30, 30, 30, 0.347);
+    border-radius: 10px;
+}
+
+/* Estilos para as colunas laterais da seção hero */
+.hero-sidebar {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    background:linear-gradient(45deg, #e64900b6, #e68e00b6);
+    z-index: 1;
+}
+
+.hero-sidebar-left {
+    left: 0;
+}
+
+.hero-sidebar-right {
+    right: 0;
+}
+
+/* Estilos específicos para o texto dentro de #hero */
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#hero p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Estilo do botão dentro de #hero */
+#hero .btn {
+    background:linear-gradient(45deg, #e64900, #e68e00);
+    color: #333;
+    padding: 12px 25px;
+}
+
+#hero .btn:hover {
+    background:linear-gradient(45deg, #e64900b6, #e68e00b6);
+}
+
+/* Os estilos para as imagens de background, que serão controladas pelo JS */
+.hero-background-image {
+    position: absolute;
+    top: auto;
+    left: auto;
+    width: 35%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+
+.hero-background-image.active {
+    opacity: 1;
+}
+
+/* Opcional: Efeito de zoom/pan sutil no background */
+.hero-background-image {
+    animation: zoomOut 20s infinite alternate;
+}
+
+@keyframes zoomOut {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    color: #333;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    margin-top: 0;
+    color: #ee781f;
+}
+
+/* Brand Grid */
+.brand-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.brand-grid img {
+    /* REGRAS ATUALIZADAS PARA TAMANHO UNIFORME */
+    width: 100px;   /* Defina uma largura fixa */
+    height: 70px;   /* Defina uma altura fixa */
+    object-fit: contain; /* Garante que a imagem se ajuste dentro das dimensões sem cortar */
+    /* FIM DAS REGRAS ATUALIZADAS */
+
+    /* Regras existentes */
+    filter: grayscale(80%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.brand-grid img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* NOVO: Estilos para a caixa de contato social */
+.contact-social-box {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    color: #333;
+}
+
+.contact-social-box p {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-social-box p a {
+    color: #ee781f;
+    font-weight: bold;
+}
+
+.social-icons-large {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.social-icons-large img {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(80%);
+}
+
+.social-icons-large img:hover {
+    transform: translateY(-5px) scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Ajuste para o h1 na seção de contato */
+#contato h1 {
+    color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1,
+    header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header nav ul {
+        padding-top: 10px;
+    }
+
+    header li {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-sidebar {
+        width: 30px;
+    }
+}
